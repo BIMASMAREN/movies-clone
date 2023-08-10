@@ -1,0 +1,132 @@
+* {
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+.nav {
+  width: 100%;
+  height: 60px;
+  font-family: sans-serif;
+  background-color: #131313;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  position: relative;
+  padding: 10px;
+}
+.nav .logo {
+  margin-left: 18px;
+  color: #fff;
+  font-size: 19px;
+}
+.nav .logo span {
+  color: rgb(250, 93, 93);
+}
+@media screen and (max-width: 770px) {
+  .nav {
+    padding: 0;
+  }
+}
+.nav nav {
+  display: flex;
+  width: 50%;
+}
+.nav nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.nav nav ul li {
+  margin: 0 10px;
+  color: white;
+}
+.nav nav ul li .icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.9;
+}
+.nav nav ul li .icon i {
+  font-size: 19px;
+  color: rgb(255, 87, 87);
+}
+.nav nav ul li .icon span {
+  color: white;
+  font-size: 15px;
+}
+.nav nav ul li .icon:active, .nav nav ul li .icon:focus {
+  background-color: #ccc;
+  border-radius: 5px;
+  padding: 0 5px;
+}
+.nav nav ul li .icon:active span,
+.nav nav ul li .icon:active i, .nav nav ul li .icon:focus span,
+.nav nav ul li .icon:focus i {
+  color: black;
+}
+@media screen and (max-width: 770px) {
+  .nav nav {
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    height: -moz-max-content;
+    height: max-content;
+    width: 100vw;
+    top: 100%;
+    z-index: 10;
+    padding: 5px 0;
+    animation: fade-in 0.8s ease-in-out forwards;
+    border-radius: 5px;
+    margin: 0;
+  }
+  .nav nav ul {
+    justify-content: space-evenly;
+    width: 100vw;
+  }
+  .nav nav ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 45%;
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 328px) {
+  .nav nav ul li .icon i {
+    font-size: 25px;
+  }
+  .nav nav ul li .icon span {
+    display: none;
+  }
+}
+.nav .eclipse {
+  margin-right: 18px;
+  cursor: pointer;
+  /* Arrow styles */
+}
+.nav .eclipse i {
+  font-size: 19px;
+  color: #fff;
+}/*# sourceMappingURL=style.css.map */

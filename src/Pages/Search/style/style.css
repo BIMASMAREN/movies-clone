@@ -1,0 +1,95 @@
+.Search {
+  min-height: 100vh;
+  padding: 10px 0;
+  margin-top: 3%;
+}
+.Search .search_input {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.Search .search_input .input {
+  width: 32%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 8px;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+@media screen and (max-width: 800px) {
+  .Search .search_input .input {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .Search .search_input .input {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .Search .search_input .input {
+    width: 95%;
+  }
+}
+.Search .search_input .input input {
+  padding: 7px 20px;
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  font-size: 16px;
+  color: #ccc;
+  transition: all 0.3s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+  color: #444;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 5px rgba(255, 76, 76, 0.5);
+  border-radius: 30px;
+  width: 100%;
+}
+.Search .search_input .input input + .submit {
+  background-color: rgb(255, 76, 76);
+  transform: translateX(0);
+}
+.Search .search_input .input .submit {
+  padding: 7px 14px;
+  color: white;
+  background-color: rgb(255, 76, 76);
+  border-radius: 5px;
+  font-family: sans-serif;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  transform: translateX(110%);
+  transition: all 0.3s ease-in-out;
+}
+.Search .result {
+  margin-top: 5%;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  place-items: center;
+  gap: 0.5em;
+}
+@media screen and (max-width: 700px) {
+  .Search .result {
+    grid-template-columns: repeat(2, auto);
+  }
+}
+@media screen and (max-width: 400px) {
+  .Search .result {
+    grid-template-columns: repeat(1, 100%);
+  }
+  .Search .result .Card {
+    width: 270px;
+    height: 395px;
+  }
+}
+@media screen and (max-width: 290px) {
+  .Search .result .Card {
+    width: 220px;
+    height: 345px;
+  }
+}/*# sourceMappingURL=style.css.map */

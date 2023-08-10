@@ -1,0 +1,77 @@
+.Profile {
+  width: 500px;
+  height: 250px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  padding: 10px;
+  font-family: sans-serif;
+  z-index: 1;
+  background-color: #211d1d;
+  opacity: 0;
+  animation-name: fade-in;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+@media screen and (max-width: 800px) {
+  .Profile {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 456px) {
+  .Profile {
+    width: 98%;
+  }
+}
+@media screen and (max-width: 350px) {
+  .Profile {
+    width: 100%;
+    height: -moz-max-content;
+    height: max-content;
+  }
+}
+.Profile ul li {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  padding: 5px 0;
+}
+.Profile ul li span {
+  color: white;
+}
+.Profile ul li .data {
+  width: 50%;
+  text-align: left;
+  color: #ccc;
+}
+.Profile .logout {
+  padding: 5px 21px;
+  background-color: rgb(255, 91, 91);
+  border-radius: 5px;
+  color: #fff;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  opacity: 0;
+  animation-name: fade-in;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=style.css.map */

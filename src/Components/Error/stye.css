@@ -1,0 +1,27 @@
+.Error{
+    font-family: sans-serif;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #4a504a;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    animation: fade-in 1s forwards;
+}
+.Error p{
+    color: #fff;
+    font-size: 17px;
+    
+}
+@keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }

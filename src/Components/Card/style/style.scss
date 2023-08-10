@@ -1,0 +1,91 @@
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.Card {
+    width: 340px;
+    height: 410px;
+    border-radius: 6px;
+    background-color: #131316;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    font-family: sans-serif;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeInAnimation 1s ease-in forwards;
+
+    @media screen and (max-width: 1058px) {
+        & {
+            width: 300px;
+            height: 390px;
+        }
+    }
+
+    @media screen and (max-width: 938px) {
+        & {
+            width: 290px;
+            height: 380px;
+        }
+    }
+
+    @media screen and (max-width: 888px) {
+        & {
+            width: 250px;
+            height: 370px;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        & {
+            width: 250px;
+            height: 320px;
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        & {
+            width: 200px;
+            height: 260px;
+        }
+    }
+
+    @media screen and (max-width: 280px) {
+        & {
+            width: 150px;
+            height: 210px;
+        }
+    }
+
+
+    .MovieDetails {
+        background-color: rgb(0, 0, 0, .5);
+        width: 100%;
+        padding: 8px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        color: #ffff;
+
+        .date {
+            margin-top: 10px;
+            color: #ccc;
+        }
+
+        .rate {
+            i {
+                color: gold;
+                margin-left: 5px;
+            }
+        }
+    }
+
+}
