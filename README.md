@@ -25,7 +25,7 @@ WebFlex is a web application that allows users to bookmark their favorite movies
 
 ## Deployment
 
-The application is deployed on Vercel and can be accessed at [(https://movies-clone-pi.vercel.app/)].
+The application is deployed on Vercel and can be accessed at [https://movies-clone-pi.vercel.app/].
 
 ## Getting Started
 
