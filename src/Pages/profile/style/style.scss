@@ -13,7 +13,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
     border-radius: 5px;
-    padding: 10px;
+    padding: 0 10px;
     font-family: sans-serif;
     z-index: 1;
     background-color: #211d1d;
@@ -41,22 +41,20 @@
             justify-content: space-between;
             margin: 20px 0;
             padding: 5px 0;
-
-            span {
-                color: #ffff;
-            }
-
+            background-color: white;
+            color: black;
+            border-radius: 4px;
+            padding-left: 4px;
             .data {
                 width: 50%;
                 text-align: left;
-                color: #ccc;
             }
         }
     }
 
     .logout {
-        padding: 5px 21px;
-        background-color: rgb(255, 91, 91);
+        padding: .5em 1em;
+        background-color: crimson;
         border-radius: 5px;
         color: #fff;
     }

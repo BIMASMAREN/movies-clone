@@ -86,10 +86,10 @@ export default function Home() {
           </div>
           <br />
           <br />
-          <div className="watch">
-            <a href="#" onClick={watch} className="watchbutton">
+          <div onClick={watch} className="watch" >
+            <button href="#"  className="watchbutton">
               Watch Now
-            </a>
+            </button>
           </div>
         </div>
       </div>

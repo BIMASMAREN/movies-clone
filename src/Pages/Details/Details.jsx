@@ -6,8 +6,8 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import firebase from "firebase/compat/app";
 import { firebaseConfig } from "../../firebase/firebase";
-
-export default function Details(props) {
+import { toast } from "react-toastify";
+export default function Details() {
   const { Id } = useParams();
   const api_key = "b5038f19e6e349c6193d9ea31b225df6";
   const [movie, setMovie] = useState(null);
@@ -20,25 +20,35 @@ export default function Details(props) {
     firebase.initializeApp(firebaseConfig);
   }
 
-  const saveMovie = (e) => {
+  const saveMovie = async (e) => {
     e.preventDefault();
+
+    if (!user || !movie || !movie.id) {
+      toast.error("User or movie information is missing");
+      return;
+    }
+
     const savedRef = firebase.database().ref(`${user}`).child("Saved");
 
-    savedRef
-      .orderByChild("id")
-      .equalTo(movie && movie.id)
-      .once("value", (snapshot) => {
-        if (snapshot.exists()) {
-          snapshot.forEach((childSnapshot) => {
-            const childKey = childSnapshot.key;
-            savedRef.child(childKey).remove();
-          });
-          SetSave(false);
-        } else {
-          savedRef.push(movie);
-          SetSave(true);
-        }
-      });
+    try {
+      const snapshot = await savedRef
+        .orderByChild("id")
+        .equalTo(movie.id)
+        .once("value");
+
+      if (snapshot.exists()) {
+        snapshot.forEach((childSnapshot) => {
+          const childKey = childSnapshot.key;
+          savedRef.child(childKey).remove();
+        });
+        SetSave(false);
+      } else {
+        savedRef.push(movie);
+        SetSave(true);
+      }
+    } catch (error) {
+      console.error("Error saving movie:", error);
+    }
   };
   useEffect(() => {
     const api = `https://api.themoviedb.org/3/movie/${Id}?api_key=${api_key}&language=en-US`;
@@ -124,7 +134,7 @@ export default function Details(props) {
                     className={`${save ? "save" : "unsave"}`}
                     onClick={saveMovie}
                   >
-                    {save ? "Unsave" : "Add to Saved"}
+                    {save ? "Discard" : "Bookmark"}
                     {save ? (
                       <i className="fa-solid fa-bookmark"></i>
                     ) : (
@@ -143,7 +153,9 @@ export default function Details(props) {
               <br />
               <div className="result">
                 {recommended &&
-                  recommended.map((movie) => <Card movie={movie} />)}
+                  recommended.map((movie) => (
+                    <Card movie={movie} key={movie.title} />
+                  ))}
               </div>
             </div>
           </div>

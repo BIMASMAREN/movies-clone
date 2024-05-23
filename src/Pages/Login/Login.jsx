@@ -1,19 +1,22 @@
 import "./style/style.css";
+
 import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
-import Error from "../../Components/Error/Error";
 import { firebaseConfig } from "../../firebase/firebase";
-import { useState } from "react";
+import "firebase/compat/auth";
+
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { LoginUser } from "../../state/user";
+import { toast } from "react-toastify";
+
+import Logo from "/public/Images/Logo.png";
+
+firebase.initializeApp(firebaseConfig);
 
 export default function Login() {
-  const [error, setError] = useState("");
   const dispatch = useDispatch();
-
-  firebase.initializeApp(firebaseConfig);
   const Navigate = useNavigate();
+
   const fetcher = (id) => document.getElementById(`${id}`).value;
 
   const switcher = (error) => {
@@ -53,6 +56,7 @@ export default function Login() {
         .auth()
         .signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
+          toast.success("Successfully logged in.");
           const Username = email.slice(0, email.indexOf("@"));
           localStorage.setItem("Login", true);
           dispatch(LoginUser());
@@ -60,27 +64,24 @@ export default function Login() {
           Navigate("/");
         })
         .catch((error) => {
-          setError(switcher(error));
+          toast.error(switcher(error));
         });
     } else {
-      setError("Please Enter All Inputs.");
-      setTimeout(() => {
-        setError("");
-      }, 1500);
+      toast.error("Please enter all inputs.");
     }
   };
   return (
     <>
       <div className="login-container">
-        <h1>Login</h1>
+        <img src={Logo} alt="" style={{ width: 150 }} />
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="username">Email</label>
-            <input type="text" id="email" />
+            <input type="text" id="email" placeholder="Email address" />
           </div>
           <div className="form-group">
             <label htmlFor="password">Password</label>
-            <input type="password" id="password" />
+            <input type="password" id="password" placeholder="Password" />
           </div>
           <div className="submit-controls">
             <button type="submit">Login</button>
@@ -90,7 +91,6 @@ export default function Login() {
           </div>
         </form>
       </div>
-      {error && <Error message={error} />}
     </>
   );
 }

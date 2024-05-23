@@ -111,14 +111,16 @@
   outline: none;
   color: white;
   border-radius: 6px;
-  background-color: rgb(247, 89, 89);
+  background-color: crimson;
+  font-family: "Poppins";
 }
 .details .Movie_details .aboutMovie .addToWatchList .unsave {
   padding: 10px 25px;
   outline: none;
   color: white;
   border-radius: 6px;
-  background-color: rgb(247, 89, 89);
+  background-color: crimson;
+  font-family: "Poppins";
 }
 .details .Movie_details .aboutMovie .addToWatchList i {
   margin-left: 10px;

@@ -1,7 +1,7 @@
 .Search {
   min-height: 100vh;
   padding: 10px 0;
-  margin-top: 3%;
+  margin-top: 10%;
 }
 .Search .search_input {
   width: 100%;
@@ -9,13 +9,12 @@
   justify-content: center;
 }
 .Search .search_input .input {
-  width: 32%;
-  height: 40px;
+  width: 60%;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding: 8px;
-  border-radius: 4px;
+  padding: 4px;
   position: relative;
   overflow: hidden;
 }
@@ -35,34 +34,37 @@
   }
 }
 .Search .search_input .input input {
-  padding: 7px 20px;
+  height: 100%;
+  padding-left: 10px;
+  flex: 1;
   background-color: transparent;
   border: 0;
+  border-radius: 4px 0 0 4px;
   outline: none;
   font-size: 16px;
   color: #ccc;
   transition: all 0.3s ease-in-out;
   background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 50px;
   color: #444;
   background-color: rgba(255, 255, 255, 0.8);
   box-shadow: 0 0 5px rgba(255, 76, 76, 0.5);
-  border-radius: 30px;
-  width: 100%;
 }
 .Search .search_input .input input + .submit {
   background-color: rgb(255, 76, 76);
   transform: translateX(0);
 }
 .Search .search_input .input .submit {
-  padding: 7px 14px;
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0 8px;
   color: white;
   background-color: rgb(255, 76, 76);
-  border-radius: 5px;
+  border-radius: 0 4px 4px 0;
   font-family: sans-serif;
   cursor: pointer;
-  position: absolute;
-  right: 0;
   transform: translateX(110%);
   transition: all 0.3s ease-in-out;
 }

@@ -18,15 +18,18 @@ export default function Search() {
     <div className="Search">
       <div className="search_input">
         <div className="input">
-          <input type="text" onChange={(e) => setSearch(e.target.value)} />
-          <a className="submit" >Search</a>
+          <input
+            type="text"
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder=" Search query"
+          />
+          <a className="submit">Search</a>
         </div>
       </div>
 
       <div className="result">
-          {movies &&
-            movies.map((movie) => <Card key={movie.id} movie={movie} />)}
-        </div>
+        {movies && movies.map((movie) => <Card key={movie.id} movie={movie} />)}
+      </div>
     </div>
   );
 }

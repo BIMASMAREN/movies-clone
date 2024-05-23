@@ -32,7 +32,11 @@
   justify-content: space-between;
   align-items: center;
   color: white;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
   padding: 10px;
 }
 .nav .logo {
@@ -60,13 +64,15 @@
 .nav nav ul li {
   margin: 0 10px;
   color: white;
+  width: 80%;
 }
 .nav nav ul li .icon {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  line-height: 1.9;
+  padding: 4px;
+  width: 80%;
 }
 .nav nav ul li .icon i {
   font-size: 19px;
@@ -78,8 +84,7 @@
 }
 .nav nav ul li .icon:active, .nav nav ul li .icon:focus {
   background-color: #ccc;
-  border-radius: 5px;
-  padding: 0 5px;
+  border-radius: 4px;
 }
 .nav nav ul li .icon:active span,
 .nav nav ul li .icon:active i, .nav nav ul li .icon:focus span,
@@ -89,11 +94,13 @@
 @media screen and (max-width: 770px) {
   .nav nav {
     background-color: rgba(0, 0, 0, 0.7);
-    position: absolute;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
     height: -moz-max-content;
     height: max-content;
     width: 100vw;
-    top: 100%;
     z-index: 10;
     padding: 5px 0;
     animation: fade-in 0.8s ease-in-out forwards;

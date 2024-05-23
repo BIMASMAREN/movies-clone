@@ -1,31 +1,28 @@
-import { useState } from "react";
-import { firebaseConfig } from "../../firebase/firebase";
 import "./style/style.css";
+import { firebaseConfig } from "/src/firebase/firebase";
 import firebase from "firebase/compat/app";
-import Error from "../../Components/Error/Error";
 import { useNavigate } from "react-router-dom";
 import "firebase/compat/database";
 import { useDispatch } from "react-redux";
-import { LoginUser } from "../../state/user";
+import { LoginUser } from "/src/state/user";
+import { toast } from "react-toastify";
+import Logo from "/public/Images/Logo.png";
 
 export default function SignUp() {
   const navigate = useNavigate();
-  const dispatch = useDispatch()
-  const [error, setError] = useState("");
+  const dispatch = useDispatch();
 
   if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
   }
 
   const SignUpUser = (user) => {
-    console.log(user);
     firebase
       .database()
       .ref(`${user.username}`)
       .set(user)
-      .catch((error) => {
-        console.log(error);
-        setError("An error occurred. Please try again later.");
+      .catch(() => {
+        toast.error("An error occurred. Please try again later.");
       });
   };
 
@@ -41,12 +38,6 @@ export default function SignUp() {
         break;
       case "auth/user-disabled":
         message = "This account has been disabled.";
-        break;
-      case "auth/user-not-found":
-        message = "This email address is not registered.";
-        break;
-      case "auth/wrong-password":
-        message = "Incorrect password.";
         break;
       default:
         message = "An error occurred. Please try again later.";
@@ -79,29 +70,23 @@ export default function SignUp() {
             });
             localStorage.setItem("username", Username);
             localStorage.setItem("Login", true);
+            toast.success("Successfully Signed up.");
             dispatch(LoginUser());
             navigate("/");
           }
         })
         .catch((error) => {
-          console.log(error.code);
-          setError(switcher(error));
-          setTimeout(() => {
-            setError("");
-          }, 1500);
+          toast.error(switcher(error));
         });
     } else {
-      setError("Please complete all inputs.");
-      setTimeout(() => {
-        setError("");
-      }, 1500);
+      toast.error("Please complete all inputs.");
     }
   };
 
   return (
     <>
       <div className="signup-container">
-        <h1>Sign Up</h1>
+        <img src={Logo} alt="" style={{ width: 150 }} />
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="username">Username</label>
@@ -123,7 +108,6 @@ export default function SignUp() {
           </div>
         </form>
       </div>
-      {error != "" && <Error message={error} />}
     </>
   );
 }

@@ -47,25 +47,25 @@ export default function () {
         <div className="Profile">
           <ul>
             <li>
-              <span>username :</span>
+              <span>Username :</span>
               <div className="data">{user.username}</div>
             </li>
             <li>
-              <span>email : </span>
+              <span>Email : </span>
 
               <div className="data">{user.email}</div>
             </li>
             <li>
-              <span>password :</span>
+              <span>Password :</span>
               <div className="data">{user.password}</div>
             </li>
             <li>
-              <span>Created At :</span>
+              <span>Created at :</span>
               <div className="data">{createdAt || ""}</div>
             </li>
           </ul>
           <a href="#" className="logout" onClick={logout}>
-            Log Out
+            Log out
           </a>
         </div>
       </>

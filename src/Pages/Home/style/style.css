@@ -62,11 +62,23 @@ body {
   margin-left: 10px;
   color: gold;
 }
-.Home .carosel .details .watch a {
-  padding: 9px 25px;
+.Home .carosel .details .watch {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.Home .carosel .details .watch button {
+  font-family: "Poppins", sans-serif;
+  font-size: medium;
+  color: white;
+  background-color: crimson;
+  outline: none;
+  border: 0;
   border-radius: 4px;
-  color: #fff;
-  background-color: rgb(255, 65, 65);
+  padding: 0.5em 1.2em;
+  cursor: pointer;
+}
+.Home .carosel .details .watch button:hover {
+  opacity: 0.8;
 }
 .Home .result {
   padding: 5%;
